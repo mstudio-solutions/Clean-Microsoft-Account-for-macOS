@@ -5,7 +5,8 @@
 #   ./build-pkg.sh 1.0.0
 #
 # The installer puts "Clean Microsoft Teams Accounts.command" in /Applications/Utilities.
-# It does not run the cleanup. The user double-clicks the file afterwards.
+# It does not run the cleanup. The user double-clicks the file afterwards,
+# and the script deletes itself after a successful cleanup.
 
 set -euo pipefail
 

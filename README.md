@@ -41,6 +41,7 @@ This store has three properties that make it hard to clean:
    - Every `OneAuthAccount` item (login keychain)
    - Every `Microsoft Office Identities ...` item (login keychain)
 6. Runs an integrity check on the keychain database and confirms nothing is left.
+7. If it was installed with the `.pkg` and the cleanup worked, it deletes itself from `/Applications/Utilities`.
 
 Nothing else in either keychain is touched.
 
@@ -101,7 +102,7 @@ Then build:
 
 The file is saved as `build/Clean-Microsoft-Teams-Accounts-1.0.0.pkg`. To use a different certificate or profile name, set `SIGN_ID` or `NOTARY_PROFILE` before the command.
 
-To uninstall, delete `/Applications/Utilities/Clean Microsoft Teams Accounts.command`.
+After a successful cleanup, the script deletes itself. If you cancel or the cleanup does not finish, it stays, so you can run it again. To remove it by hand, delete `/Applications/Utilities/Clean Microsoft Teams Accounts.command`.
 
 ## What to expect afterwards
 

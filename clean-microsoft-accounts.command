@@ -11,6 +11,9 @@ setopt null_glob
 # Keychain access group where Microsoft apps keep accounts and tokens.
 GROUP='UBF8T346G9.com.microsoft.identity.universalstorage'
 LOGIN_KEYCHAIN="$HOME/Library/Keychains/login.keychain-db"
+# Where the .pkg installs this script. Only that copy removes itself when done.
+INSTALLED='/Applications/Utilities/Clean Microsoft Teams Accounts.command'
+SELF=${0:A}
 
 # Apps that may hold unsaved documents: the user quits these.
 ASK_QUIT=(
@@ -191,4 +194,14 @@ else
   echo "$LEFT item(s) could not be removed; a Microsoft app may still be running in the background. Restart the Mac and run this again."
 fi
 (( ${#DBS} > 0 )) && echo "Once everything works, you can delete the backup: ${BACKUP/#$HOME/~}"
+
+# --- 6. Remove the installed copy of this script ----------------------------
+if (( LEFT == 0 )) && [[ "$SELF" == "$INSTALLED" ]]; then
+  echo
+  if rm -f "$SELF" 2>/dev/null; then
+    echo "This tool has removed itself from Applications > Utilities."
+  else
+    echo "Could not remove this tool. Drag it from Applications > Utilities to the Trash."
+  fi
+fi
 finish 0

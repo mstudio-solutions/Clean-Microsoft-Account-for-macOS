@@ -6,7 +6,7 @@
 #
 # The installer puts "Clean Microsoft Teams Accounts.command" in /Applications/Utilities.
 # It does not run the cleanup. The user double-clicks the file afterwards,
-# and the script deletes itself after a successful cleanup.
+# then deletes it from Applications > Utilities when done.
 
 set -euo pipefail
 

@@ -85,7 +85,7 @@ After it finishes, open Teams. The account picker should be empty, and you sign 
 
 ## Build the installer (.pkg)
 
-`build-pkg.sh` makes a signed and notarized `.pkg`. The installer only copies the script to `/Applications/Utilities/Clean Microsoft Accounts.command`. It does not clean anything. After installing, double-click that file to run it.
+`build-pkg.sh` makes a signed and notarized `.pkg`. The installer only copies the script to `/Applications/Utilities/Clean Microsoft Teams Accounts.command`. It does not clean anything. After installing, double-click that file to run it.
 
 You need a Mac with Xcode command line tools, a Developer ID Installer certificate, and a saved notarytool profile:
 
@@ -99,9 +99,9 @@ Then build:
 ./build-pkg.sh 1.0.0
 ```
 
-The file is saved as `build/Clean-Microsoft-Accounts-1.0.0.pkg`. To use a different certificate or profile name, set `SIGN_ID` or `NOTARY_PROFILE` before the command.
+The file is saved as `build/Clean-Microsoft-Teams-Accounts-1.0.0.pkg`. To use a different certificate or profile name, set `SIGN_ID` or `NOTARY_PROFILE` before the command.
 
-To uninstall, delete `/Applications/Utilities/Clean Microsoft Accounts.command`.
+To uninstall, delete `/Applications/Utilities/Clean Microsoft Teams Accounts.command`.
 
 ## What to expect afterwards
 

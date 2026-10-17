@@ -4,13 +4,13 @@
 #
 #   ./build-pkg.sh 1.0.0
 #
-# The installer puts "Clean Microsoft Accounts.command" in /Applications/Utilities.
+# The installer puts "Clean Microsoft Teams Accounts.command" in /Applications/Utilities.
 # It does not run the cleanup. The user double-clicks the file afterwards.
 
 set -euo pipefail
 
 VERSION="${1:-1.0.0}"
-IDENTIFIER="com.mstudio.clean-microsoft-accounts"
+IDENTIFIER="com.mstudio.clean-microsoft-teams-accounts"
 SIGN_ID="${SIGN_ID:-Developer ID Installer: Chung Pong Martin Yeung (3H95TBP74D)}"
 # Saved once with: xcrun notarytool store-credentials "<name>" --apple-id ... --team-id 3H95TBP74D
 NOTARY_PROFILE="${NOTARY_PROFILE:-notary}"
@@ -18,13 +18,13 @@ NOTARY_PROFILE="${NOTARY_PROFILE:-notary}"
 cd "$(dirname "$0")"
 OUT_DIR="build"
 ROOT="$OUT_DIR/root"
-PKG="$OUT_DIR/Clean-Microsoft-Accounts-$VERSION.pkg"
+PKG="$OUT_DIR/Clean-Microsoft-Teams-Accounts-$VERSION.pkg"
 
 echo "== Building $PKG"
 rm -rf "$OUT_DIR"
 mkdir -p "$ROOT/Applications/Utilities"
-cp clean-microsoft-accounts.command "$ROOT/Applications/Utilities/Clean Microsoft Accounts.command"
-chmod 755 "$ROOT/Applications/Utilities/Clean Microsoft Accounts.command"
+cp clean-microsoft-accounts.command "$ROOT/Applications/Utilities/Clean Microsoft Teams Accounts.command"
+chmod 755 "$ROOT/Applications/Utilities/Clean Microsoft Teams Accounts.command"
 # Remove extended attributes (quarantine, Finder info) so they don't end up in the package.
 xattr -cr "$ROOT"
 
